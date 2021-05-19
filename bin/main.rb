@@ -8,4 +8,8 @@ nba_player.name=gets.chomp
 browser  = Watir::Browser.new
 browser.goto("https://www.basketball-reference.com/")
 browser.text_field(name:"search").set nba_player.name
-sleep 5
+
+browser.button(type:"submit").click
+browser.link(xpath: "/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/strong/a").click
+browser.link(text: '2020-21').click
+sleep 3
