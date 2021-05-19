@@ -14,7 +14,17 @@ browser.link(xpath: "/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]
 season=browser.url.delete_suffix('.html')
 season+='/gamelog/2021'
 browser.goto(season)
-doc = Nokogiri::HTML.parse(season)
-all_games_table=doc.css("table").sort {|x,y| y.css("tr").count<=,=>x.css("tr").count}.first
-
+docu = Nokogiri::HTML.parse(browser.html)
+table1 = docu.css("table").sort {|x,y| y.css("tr").count<=> x.css("tr").count}.first
+p table1
+rows = table1.css("tr")
+rows=rows.select {|row| row.css("th").empty?}
+per_game_array=rows.map do |row|
+  row.at_css("td:nth_child(28)").try(:text)
+  row.at_css("td:nth_child(23)").try(:text)
+  row.at_css("td:nth_child(22)").try(:text)
+  row.at_css("td:nth_child(13)").try(:text)
+end
+per_game_array=per_game_array.reject {|nnil| nnil[0].nil?}
+p per_game_array
 sleep 5
