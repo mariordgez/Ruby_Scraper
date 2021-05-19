@@ -7,3 +7,5 @@ puts "To begin please select the name of the player that you want to extract inf
 nba_player.name=gets.chomp
 browser  = Watir::Browser.new
 browser.goto("https://www.basketball-reference.com/")
+browser.text_field(name:"search").set nba_player.name
+sleep 5
