@@ -11,5 +11,10 @@ browser.text_field(name:"search").set nba_player.name
 
 browser.button(type:"submit").click
 browser.link(xpath: "/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/strong/a").click
-browser.link(text: '2020-21').click
-sleep 3
+season=browser.url.delete_suffix('.html')
+season+='/gamelog/2021'
+browser.goto(season)
+doc = Nokogiri::HTML.parse(season)
+all_games_table=doc.css("table").sort {|x,y| y.css("tr").count<=,=>x.css("tr").count}.first
+
+sleep 5
