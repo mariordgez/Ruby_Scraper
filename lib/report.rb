@@ -33,8 +33,7 @@ class Report
     assist_diff = season_avr[1] - last_ten[1]
     rebound_diff = season_avr[2] - last_ten[2]
     shooting_diff = season_avr[3] * 100 - last_ten[3] * 100
-    difference = point_diff + assist_diff + rebound_diff + (shooting_diff/3)
-    p "differencial: #{difference}"
+    difference = point_diff + assist_diff + rebound_diff + (shooting_diff / 3)
     @player_condition = if player_hot?(difference)
                           3
                         elsif player_cold?(difference)

@@ -1,5 +1,6 @@
 class Player
-  attr_accessor :name, :points, :rebounds, :assists, :true_shooting, :last_ten_points, :last_ten_rebounds , :last_ten_assists, :last_ten_shooting
+  attr_accessor :name, :points, :rebounds, :assists, :true_shooting, :last_ten_points, :last_ten_rebounds,
+                :last_ten_assists, :last_ten_shooting
 
   def initialize
     @name = ''
@@ -7,10 +8,10 @@ class Player
     @rebounds = []
     @assists = []
     @true_shooting = []
-    @last_ten_points=[]
-    @last_ten_rebounds=[]
-    @last_ten_assists=[]
-    @last_ten_shooting=[]
+    @last_ten_points = []
+    @last_ten_rebounds = []
+    @last_ten_assists = []
+    @last_ten_shooting = []
   end
 
   def get_points(arr)
