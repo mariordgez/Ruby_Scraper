@@ -11,7 +11,7 @@ class Report
   def report_averages(name, points, assists, rebounds, shooting)
     season_avr_arr(points, assists, rebounds, shooting)
     puts "Throughout the 2020-21 season, #{name} is averaging #{points} ppg, #{assists} assists,"
-    puts "#{rebounds} rebounds while shooting #{(shooting * 100).round(2)}% from the field"
+    puts " #{rebounds} rebounds while shooting #{(shooting * 100).round(2)}% from the field"
   end
 
   def report_last_ten(name, points, assists, rebounds, shooting)
