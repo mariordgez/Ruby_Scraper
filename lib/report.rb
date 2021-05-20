@@ -46,11 +46,11 @@ class Report
   def end_report(name)
     case @player_condition
     when 1
-      puts "#{name} is currently having a cold streak, you probably shouldn't expect him to have huge numbers"
+      puts "#{name} is currently having a cold streak, you probably shouldnt expect him to have huge numbers"
     when 2
       puts "#{name} is currently playing like he normally does"
     when 3
-      puts "#{name} is on fire!!, he is a great pick to bet on and expect him to keep playing well"
+      puts "#{name} is on fire!, he is a great pick to bet on and expect him to keep playing well"
     else
       puts 'No report at the moment'
     end

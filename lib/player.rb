@@ -19,5 +19,4 @@ class Player
     arr.each { |val| total += val }
     total /= arr.length
   end
-
 end
