@@ -61,4 +61,49 @@ it 'should not return true if arg is <5' do
   end
 
 end
+describe '#compare' do
+it 'should return 3 since player is currently hot' do
+array1=[20,7,7,0.50]
+array2=[25,9,7,0.50]
+expect(report.compare(array1,array2)).to eql(3)
+end
+it 'should return 2 since player is within his normal averages' do
+  array1=[20,7,7,0.50]
+  array2=[21,8,6,0.48]
+  expect(report.compare(array1,array2)).to eql(2)
+  end
+
+it 'should return 1 since player is playing below his usual standards' do
+  array1=[20,7,7,0.50]
+  array2=[15,8,6,0.41]
+  expect(report.compare(array1,array2)).to eql(1)
+  end
+end
+describe '#end_report' do
+it 'Should be equal to the output since player condition matches' do
+report.player_condition=1
+compare_output= "mario is currently having a cold streak, you probably shouldn't expect him to have huge numbers\n"
+expect{report.end_report('mario')}.to output(compare_output).to_stdout
+end
+it 'Should be equal to the output since player condition matches' do
+  report.player_condition=2
+  compare_output= "mario is currently playing like he normally does\n"
+  expect{report.end_report('mario')}.to output(compare_output).to_stdout
+  end
+  it 'Should be equal to the output since player condition matches' do
+    report.player_condition=3
+    compare_output= "mario is on fire!!, he is a great pick to bet on and expect him to keep playing well\n"
+    expect{report.end_report('mario')}.to output(compare_output).to_stdout
+    end
+    it 'Should be equal to the output since player condition matches' do
+      report.player_condition=0
+      compare_output= "No report at the moment\n"
+      expect{report.end_report('mario')}.to output(compare_output).to_stdout
+      end
+    it 'Should not be equal to the output since player condition doesnt match' do
+      report.player_condition=3
+      compare_output= "mario is currently playing like he normally does\n"
+      expect{report.end_report('mario')}.not_to output(compare_output).to_stdout
+      end
+end
 end
