@@ -1,33 +1,30 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# OOP TIC TAC TOE GAME
+# RUBY CAPSTONE PROJECT: BASKETBALL REFERENCE SCRAPER
 
-A tic-tac-toe game was built to be played on the command line where two human players can play against each other and the board is displayed in between turns.
+A scraper was built to get information from current NBA players recent performances from the most popular basketball database out there, https://www.basketball-reference.com/
 
 ### Main Objective
 
-In this project, we built a Tic Tac Toe game. The main goal is to put into practice the main concepts of Object-Oriented Programming. Particularly, classes and access to their attributes.
+In this project, I built a scraper for a sports page database, the goal is check if I have gained mastery over the concepts learned throughout the Ruby block in Microverse, in particular, one of the requirements was to use a scraping library like Nokogiri.
 
-## Game Instructions
+## Scraper Instructions
 
-To run the game run the following command in the terminal "bin/main.rb", then follow the next steps:
+To run the scraper run the following command in the terminal "ruby bin/main.rb", then follow the next steps:
 
-1. First Player should put their name (Only numbers are not allowed as names)
-2. Second Player should put their name (Only numbers are not allowed as names)
-3. Now the first player can pick a number from 1 to 9 as displayed on the board, followed by the second player
-4. Each of the players will take turns picking available numbers until a win condition is met
-5. To win the game, the player must have a series of consecutive signs that can be, 3 consecutive horizontal cells, 3 consecutive vertical cells, or either of the 2 diagonals
-6. If no other moves are available and a win condition is not met, the game will end as a tie.
-
-Here is an example of a game where x is the winner
-
-![](images/Tic-tac-toe-animated.gif)
+1. Type the name of the current basketball player that you wish to get information from
+2. If the name is not found (name should be as precise as possible since we are using the Watir gem for a automated browser experience), the program will ask you to type the name again (Or in case player is not found, you should type the name of another player)
+3. From here you should let the automated browser do its work, it should take about 5 to 10 seconds to complete its extraction of information
+4. After the Watir automated browser is done, you should get a report on your console of the player averages throughout the season, and his most recent performance
+5. Afterwhich, you will get a final message describing the player recent performance (e.g if Stephen Curry is averaging 30 ppg throughout the season, and over the last 10 games he is averaging 35, the end report should tell you that he is playing very well right now)
 
 ## Built With
 
 - Ruby
 - Git workflow best practice
 - Gem Rubocop
+- Gem Nokogiri
+- Gem Watir
 - Github workflow practices to fix linter errors
 - Rspec TDD
 
@@ -35,7 +32,7 @@ Here is an example of a game where x is the winner
 
 To get a local copy of the repository please follow the next steps (Examples are shown using git bash, to install git bash go to https://git-scm.com/downloads and install according to the version of your computer):
 
-- Go to the GitHub page where the repository is (Link example: https://github.com/DanSam5K/OOP-Tic-Tac-Toe-Game)
+- Go to the GitHub page where the repository is (Link example: https://github.com/mariordgez/Ruby_Scraper)
 
 - On the repository page, click on the green code button
 
@@ -45,7 +42,7 @@ To get a local copy of the repository please follow the next steps (Examples are
 
 ![](images\readmepic2.JPG)
 
-- If you have git bash install, simply navigate to the folder where you want to copy the repository
+- If you have git bash installed, simply navigate to the folder where you want to copy the repository
 
 - Once in the folder, right-click on the folder and select git bash here
 
@@ -60,17 +57,43 @@ It should show the files that are in that folder
 - After you verified that you are at the right place, run this command to clone the repository in your local machine
 
 ```
-$ git clone https://github.com/DanSam5K/OOP-Tic-Tac-Toe-Game.git
+$ git clone https://github.com/mariordgez/Ruby_Scraper.git
 ```
 
 This should create a clone of the repository in your desired folder, from there, just open the folder from your desired code editor to check, modify or test the code
 
-#### Run code
+#### Installing gems and webdriver
 
-To run code and start the game, run "bin/main.rb" from your terminal.
+In order to run the scraper, there are some gems that need to be installed as well, to install gems you need to have ruby installed on your computer, to do that just go to https://www.ruby-lang.org/en/documentation/installation/ and download a version that suits your machine.
+
+Once we have Ruby in our system, to install the gems you just have to execute "gem install 'gem_name'" in your command line e.g :
 
 ```
-$ bin/main.rb
+$ gem install 'nokogiri'
+```
+
+then
+
+```
+$ gem install 'watir'
+```
+
+and finally in case you dont have it
+
+```
+$ gem install 'rubocop'
+```
+
+Once you have your gems installed, you should check the webdriver for Watir, for this project we use google chrome so you should install the google chrome driver, you can find it here https://sites.google.com/a/chromium.org/chromedriver/downloads
+Ensure that you are using the proper driver.
+Once you have downloaded the proper driver, just put it somewhere in your $PATH (e.g /usr/local/bin/)
+
+#### Run code
+
+To run code and start the game, run "ruby bin/main.rb" from your terminal.
+
+```
+$ ruby bin/main.rb
 ```
 
 #### Testing With Rspec
@@ -85,12 +108,6 @@ $ rspec
 And see all test pass.
 
 ## Authors
-
-👤 **Dante Alonso Hernández Tapia**
-
-- GitHub: [@DanteAlonsoHT](https://github.com/DanteAlonsoHT)
-- Twitter: [@dante_dante1](https://twitter.com/dante_dante1)
-- LinkedIn: [Dante Alonso](https://www.linkedin.com/in/dante-hernandez99/)
 
 👤 **Mario Rodriguez**
 
