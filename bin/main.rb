@@ -1,5 +1,5 @@
-require 'watir'
 require './lib/player'
+require 'watir'
 require 'nokogiri'
 nba_player= Player.new
 puts "Welcome to the basketball reference Scraper API"
@@ -10,21 +10,22 @@ browser.goto("https://www.basketball-reference.com/")
 browser.text_field(name:"search").set nba_player.name
 
 browser.button(type:"submit").click
+sleep 0.5
 browser.link(xpath: "/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/strong/a").click
 season=browser.url.delete_suffix('.html')
 season+='/gamelog/2021'
+sleep 0.5
 browser.goto(season)
 docu = Nokogiri::HTML.parse(browser.html)
 table1 = docu.css("table").sort {|x,y| y.css("tr").count<=> x.css("tr").count}.first
-p table1
 rows = table1.css("tr")
-rows=rows.select {|row| row.css("th").empty?}
+rows=rows.select {|row| row.css("th").text.to_i != 0}
 per_game_array=rows.map do |row|
-  row.at_css("td:nth_child(28)").try(:text)
-  row.at_css("td:nth_child(23)").try(:text)
-  row.at_css("td:nth_child(22)").try(:text)
-  row.at_css("td:nth_child(13)").try(:text)
+  [String.try_convert(row.at_css("td:nth-child(28)")),
+  String.try_convert(row.at_css("td:nth-child(23)")),
+  String.try_convert(row.at_css("td:nth-child(22)")),
+  String.try_convert(row.at_css("td:nth-child(13)"))]
 end
-per_game_array=per_game_array.reject {|nnil| nnil[0].nil?}
+per_game_array=per_game_array.reject {|n| n[0].nil?}
 p per_game_array
 sleep 5
