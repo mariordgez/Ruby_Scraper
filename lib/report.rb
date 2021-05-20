@@ -58,13 +58,13 @@ class Report
   end
 
   def player_hot?(comparison)
-    return true if comparison < 5
+    return true if comparison < -5
 
     false
   end
 
   def player_cold?(comparison)
-    return true if comparison > 3
+    return true if comparison > 5
 
     false
   end
