@@ -52,4 +52,13 @@ it 'should not return true if arg is >-5' do
   end
 
 end
+describe '#player_cold?' do
+it 'should return true if arg is >5' do
+expect(report.player_cold?(6)).to eql(true)
+end
+it 'should not return true if arg is <5' do
+  expect(report.player_cold?(3)).not_to eql(true)
+  end
+
+end
 end
