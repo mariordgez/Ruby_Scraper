@@ -4,13 +4,12 @@ require 'watir'
 require 'nokogiri'
 nba_player = Player.new
 nba_report = Report.new
+puts 'Welcome to the basketball reference Scraper API'
+  puts 'select the name of the player that you want to extract information from: (e.g Lebron James, Kevin Durant)'
+  nba_player.name = gets.chomp
 browser = Watir::Browser.new
 browser.goto('https://www.basketball-reference.com/')
 until browser.link(xpath: '/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/strong/a').exists?
-  sleep 3
-  puts 'Welcome to the basketball reference Scraper API'
-  puts 'select the name of the player that you want to extract information from: (e.g Lebron James, Kevin Durant)'
-  nba_player.name = gets.chomp
 
   browser.text_field(name: 'search').set nba_player.name
 
@@ -19,7 +18,7 @@ until browser.link(xpath: '/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/
   next if browser.link(xpath: '/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/strong/a').exists?
 
   puts 'Please type the name of an nba player'
-  gets.chomp
+  nba_player.name = gets.chomp
   system('clear')
 
 end
@@ -69,4 +68,4 @@ nba_report.report_averages(nba_player.name,ppg,ast,reb,fg)
 nba_report.report_last_ten(nba_player.name,latest_ppg,latest_ast,latest_reb,latest_fg)
 nba_report.compare(nba_report.season_avr,nba_report.last_ten)
 nba_report.end_report(nba_player.name)
-sleep 5
+gets.chomp
