@@ -70,5 +70,5 @@ nba_report.report_averages(nba_player.name, ppg, ast, reb, fg)
 nba_report.report_last_ten(nba_player.name, latest_ppg, latest_ast, latest_reb, latest_fg)
 nba_report.compare(nba_report.season_avr, nba_report.last_ten)
 nba_report.end_report(nba_player.name)
-puts "Press enter to exit scraper..."
+puts 'Press enter to exit scraper...'
 gets.chomp

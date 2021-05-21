@@ -43,18 +43,18 @@ describe Report do
   end
   describe '#player_hot?' do
     it 'should return true if arg is <-5' do
-      expect(report.send(:player_hot?,-10)).to eql(true)
+      expect(report.send(:player_hot?, -10)).to eql(true)
     end
     it 'should not return true if arg is >-5' do
-      expect(report.send(:player_hot?,-4)).not_to eql(true)
+      expect(report.send(:player_hot?, -4)).not_to eql(true)
     end
   end
   describe '#player_cold?' do
     it 'should return true if arg is >5' do
-      expect(report.send(:player_cold?,6)).to eql(true)
+      expect(report.send(:player_cold?, 6)).to eql(true)
     end
     it 'should not return true if arg is <5' do
-      expect(report.send(:player_cold?,3)).not_to eql(true)
+      expect(report.send(:player_cold?, 3)).not_to eql(true)
     end
   end
   describe '#compare' do
