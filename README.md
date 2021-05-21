@@ -84,6 +84,14 @@ and finally in case you dont have it
 $ gem install 'rubocop'
 ```
 
+Alternatively, you can install the gem bundler, and with the Gemfile in the project you can run the next lines of code to install the required gems
+
+```
+$ gem install 'bundler'
+$ bundle install
+```
+
+
 Once you have your gems installed, you should check the webdriver for Watir, for this project we use google chrome so you should install the google chrome driver, you can find it here https://sites.google.com/a/chromium.org/chromedriver/downloads
 Ensure that you are using the proper driver.
 Once you have downloaded the proper driver, just put it somewhere in your $PATH (e.g /usr/local/bin/)
