@@ -1,4 +1,4 @@
-require './lib/player'
+require_relative '../lib/player'
 class Report
   attr_accessor :season_avr, :last_ten, :player_condition
 
