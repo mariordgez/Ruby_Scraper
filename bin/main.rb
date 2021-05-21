@@ -3,6 +3,7 @@ require_relative '../lib/report'
 require 'watir'
 require 'nokogiri'
 nba_player = Player.new
+
 nba_report = Report.new
 puts 'Welcome to the basketball reference Scraper API'
 puts 'select the name of the player that you want to extract information from: (e.g Lebron James, Kevin Durant)'
@@ -24,7 +25,9 @@ until browser.link(xpath: '/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/
 end
 browser.link(xpath: '/html/body/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/strong/a').click
 season = browser.url.delete_suffix('.html')
+puts season
 season += '/gamelog/2021'
+puts season
 sleep 0.5
 browser.goto(season)
 docu = Nokogiri::HTML.parse(browser.html)

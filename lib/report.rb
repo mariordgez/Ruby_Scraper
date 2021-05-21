@@ -1,6 +1,7 @@
 require_relative '../lib/player'
 class Report
   attr_accessor :season_avr, :last_ten, :player_condition
+  
 
   def initialize
     @season_avr = []
@@ -67,4 +68,5 @@ class Report
 
     false
   end
+  private :season_avr_arr, :last_ten_arr, :player_hot?, :player_cold?
 end
